@@ -50,15 +50,27 @@ class AlunoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $aluno = Aluno::find($id); 
+        $cursos = Curso::all(); 
+
+        if(isset($aluno)){
+            return view('aluno.edit', compact(['aluno', 'cursos'])); 
+        }
+        return "<h1> Disciplina não encontrada </h1>";
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AlunoRequest $request, string $id)
     {
-        //
+        $aluno = Aluno::find($id); 
+
+        if(isset($aluno)){
+            $aluno->update($request->validated()); 
+            return redirect()->route('aluno.index'); 
+        }
+        return "<h1> Aluno nao encontrado </h1>";
     }
 
     /**
