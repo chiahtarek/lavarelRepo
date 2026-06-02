@@ -42,7 +42,12 @@ class AlunoController extends Controller
      */
     public function show(string $id)
     {
-        //
+          $aluno = Aluno::find($id); 
+
+           if(isset($aluno)){
+            return view('aluno.show', compact(['aluno'])); 
+        }
+        return "<h1> Disciplina não encontrada </h1>";
     }
 
     /**
@@ -78,6 +83,12 @@ class AlunoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $aluno = Aluno::find($id); 
+
+        if(isset($aluno)){
+            $aluno->delete(); 
+            return redirect()->route('aluno.index'); 
+        }
+        return "<h1> Aluno nao encontrado </h1>"; 
     }
 }
