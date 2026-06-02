@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AlunoRequest;
+use App\Models\Aluno;
+use App\Models\Curso;
 
 class AlunoController extends Controller
 {
@@ -11,7 +14,8 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $data = Aluno::with(['curso'])->orderBy('nome')->get();
+        return view('aluno.index', compact(['data'])); 
     }
 
     /**
@@ -19,15 +23,18 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        //
+        $cursos = Curso::all(); 
+        return view('aluno.create', compact(['cursos'])); 
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AlunoRequest $request)
     {
-        //
+        $validado = $request->validated(); 
+        Aluno::create($validado); 
+        return redirect()->route('aluno.index'); 
     }
 
     /**
