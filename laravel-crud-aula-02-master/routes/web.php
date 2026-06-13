@@ -4,6 +4,7 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\DisciplinaController;
 use App\Http\Controllers\MatriculaController;
+use App\Http\Controllers\ClienteController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,4 @@ Route::resource('/curso', CursoController::class);
 Route::resource('/disciplina', DisciplinaController::class);
 Route::resource('/aluno', AlunoController::class);
 Route::resource('/matricula', MatriculaController::class);
+Route::resource('/cliente', ClienteController::class);
