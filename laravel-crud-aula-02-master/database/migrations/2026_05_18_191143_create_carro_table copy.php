@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('cor');
             $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\ClienteRequest;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Cliente;
+use App\Services\ClienteService;
 
 class ClienteController extends Controller
 {
+
+    public function __construct(protected ClienteService $service) {}
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $data = $this->service->all([], [],'nome' );
+        return view('cliente.index', compact(['data']));
     }
 
     /**
@@ -28,9 +34,8 @@ class ClienteController extends Controller
      */
     public function store(ClienteRequest $request)
     {
-        $validado = $request->validated();
-        Cliente::create($validado); 
-        return redirect()->route('cliente.create');
+       $this->service->store($request->validated()); 
+       return redirect()->route('cliente.index'); 
     }
 
     /**

@@ -33,9 +33,9 @@
                 <div class="form-floating mb-3">
                     <input
                         type="text"
-                        class="form-control @error('duracao') is-invalid @enderror"
+                        class="form-control @error('email') is-invalid @enderror"
                         name="email"
-                        placeholder="Tempo de Duração"
+                        placeholder="email"
                         value="{{old('email')}}"
                     />
                     <label for="email">Email</label>
@@ -53,9 +53,9 @@
                 <div class="form-floating mb-3">
                     <input
                         type="text"
-                        class="form-control @error('duracao') is-invalid @enderror"
+                        class="form-control @error('telefone') is-invalid @enderror"
                         name="telefone"
-                        placeholder="Tempo de Duração"
+                        placeholder="Telefone"
                         value="{{old('telefone')}}"
                     />
                     <label for="telefone">Telefone</label>
