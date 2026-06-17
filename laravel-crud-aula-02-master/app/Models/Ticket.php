@@ -14,6 +14,7 @@ class Ticket extends Model
         'data_saida',
         'status',
         'carro_id',
+        'vaga_id',
         'valor',
     ];
 
