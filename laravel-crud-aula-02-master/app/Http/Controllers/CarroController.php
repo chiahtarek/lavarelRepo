@@ -27,7 +27,7 @@ class CarroController extends Controller
      */
     public function create()
     {
-        $clientes = $this->clienteService->all([], [], '');
+        $clientes = $this->clienteService->all([], [], 'nome');
         return view('carro.create', compact(['clientes']));
     }
 

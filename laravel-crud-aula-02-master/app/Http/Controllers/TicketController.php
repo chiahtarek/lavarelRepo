@@ -3,21 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Httpz\Requests\TicketRequest;
+use App\Http\Requests\TicketRequest;
 use App\Services\TicketService;
 use App\Services\VagaService;
+use App\Services\CarroService;
 use App\Models\Ticket;
 
 class TicketController extends Controller
 {
     public function __construct(protected TicketService $ticketService, 
-    protected VagaService $vagaService) {}
+    protected VagaService $vagaService, protected CarroService $carroService) {}
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -25,7 +26,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        $vagas = $this->vagaService->all([], [],'descricao' );
+        $carros = $this->carroService->all([], [],'placa'); 
+        return view('ticket.create', compact('vagas', 'carros'));
     }
 
     /**
