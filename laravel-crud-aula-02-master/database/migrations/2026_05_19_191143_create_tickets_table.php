@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('vaga_id');
             $table->foreign('vaga_id')->references('id')->on('vagas');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

@@ -17,9 +17,9 @@
                         name="carro_id"
                         class="form-select form-control input-required @error('carro_id') is-invalid @enderror"
                     >
-                        @foreach ($carros as $item)
-                            <option value="{{$item->id}}" @if($item->id == old('carro_id')) selected="true" @endif>
-                               PLACA:{{$item->placa }}  - MODELO:  {{$item->modelo}} -  DONO: {{$item->cliente->nome}}
+                        @foreach ($carros as $carro)
+                            <option value="{{$carro->id}}" @if($carro->id == old('carro_id')) selected="true" @endif>
+                               PLACA:{{$carro->placa }}  - MODELO:  {{$carro->modelo}} -  DONO: {{$carro->cliente->nome}}
                             </option>
                         @endforeach
                     </select>

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 
-class DisciplinaRequest extends FormRequest
+class InserirTicketRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -43,10 +43,8 @@ class DisciplinaRequest extends FormRequest
         $id = $this->route('ticket');
 
         return [
-            'data_entrada' => "required",
             'carro_id'     => "required",
             'vaga_id'      => "required",
-            'status'       => "required",
 
             'data_saida'   => "prohibited",
             'valor'        => "prohibited",

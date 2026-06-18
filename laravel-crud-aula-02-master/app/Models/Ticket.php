@@ -18,11 +18,11 @@ class Ticket extends Model
         'valor',
     ];
 
-    public function curso() {
-        return $this->belongsTo('\App\Models\Curso');
+    public function carro() {
+        return $this->belongsTo('\App\Models\Carro');
     }
 
-    public function disciplina() {
-        return $this->belongsToMany('\App\Models\Disciplina', 'matriculas');
+    public function vaga() {
+        return $this->belongsTo('\App\Models\Vaga');
     }
 }

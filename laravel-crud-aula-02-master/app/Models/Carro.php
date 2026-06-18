@@ -20,5 +20,8 @@ class Carro extends Model
     public function cliente() {
         return $this->belongsTo('\App\Models\Cliente');
     }
+    public function ticket() {
+        return $this->hasMany('\App\Models\Ticket');
+    }
 
 }

@@ -15,7 +15,7 @@ class Vaga extends Model
     ];
 
     public function ticket() {
-        return $this->belongsToMany('\App\Models\Ticket');
+        return $this->hasMany('\App\Models\Ticket');
     }
 
     

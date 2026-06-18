@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\TicketRequest;
+use App\Http\Requests\InserirTicketRequest;
 use App\Services\TicketService;
 use App\Services\VagaService;
 use App\Services\CarroService;
@@ -18,7 +18,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-
+        $data = $this->ticketService->all([], [],'id' );
+        return view('ticket.index', compact(['data']));
     }
 
     /**
@@ -34,9 +35,13 @@ class TicketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InserirTicketRequest $request)
     {
-        //
+       $dados = $request;
+       $dados['data_entrada'] = now();
+       $dados['status'] = 'ABERTO';
+       $this->ticketService->store($dados);
+       return redirect()->route('ticket.create');
     }
 
     /**
