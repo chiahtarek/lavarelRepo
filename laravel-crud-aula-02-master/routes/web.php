@@ -21,3 +21,4 @@ Route::resource('/matricula', MatriculaController::class);
 Route::resource('/cliente', ClienteController::class);
 Route::resource('/carro', CarroController::class);
 Route::resource('/ticket', TicketController::class);
+Route::put('/ticket/{id}/saida', [TicketController::class, 'darSaida'])->name('ticket.saida');

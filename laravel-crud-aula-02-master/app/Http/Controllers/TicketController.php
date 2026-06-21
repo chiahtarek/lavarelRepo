@@ -37,7 +37,7 @@ class TicketController extends Controller
      */
     public function store(InserirTicketRequest $request)
     {
-       $dados = $request;
+       $dados = $request->validated();
        $dados['data_entrada'] = now();
        $dados['status'] = 'ABERTO';
        $this->ticketService->store($dados);
@@ -55,9 +55,10 @@ class TicketController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function darSaida(string $id)
     {
-        //
+        $this->ticketService->darSaida($id);
+        return redirect()->back()->with('success', 'Ticket finalizado com sucesso.');
     }
 
     /**

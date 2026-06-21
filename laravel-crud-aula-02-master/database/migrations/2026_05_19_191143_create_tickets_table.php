@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('carro_id')->references('id')->on('carros');
             $table->unsignedBigInteger('vaga_id');
             $table->foreign('vaga_id')->references('id')->on('vagas');
+            $table->double('valor')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -12,4 +12,12 @@ class TicketRepository extends BaseRepository {
         return $this->model->newInstance();
     }
 
+    public function finalizar(int $id, array $dados): bool
+    {
+        return $this->model
+            ->newQuery()
+            ->where('id', $id)
+            ->update($dados);
+    }
+
 }
