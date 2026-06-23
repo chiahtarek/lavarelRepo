@@ -23,10 +23,10 @@
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary">
         <div class="container-fluid">
             <a href="{{ route('home') }}" class="navbar-brand">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#F99" class="bi bi-xbox" viewBox="0 0 16 16">
-                    <path d="M7.202 15.967a8 8 0 0 1-3.552-1.26c-.898-.585-1.101-.826-1.101-1.306 0-.965 1.062-2.656 2.879-4.583C6.459 7.723 7.897 6.44 8.052 6.475c.302.068 2.718 2.423 3.622 3.531 1.43 1.753 2.088 3.189 1.754 3.829-.254.486-1.83 1.437-2.987 1.802-.954.301-2.207.429-3.239.33m-5.866-3.57C.589 11.253.212 10.127.03 8.497c-.06-.539-.038-.846.137-1.95.218-1.377 1.002-2.97 1.945-3.95.401-.417.437-.427.926-.263.595.2 1.23.638 2.213 1.528l.574.519-.313.385C4.056 6.553 2.52 9.086 1.94 10.653c-.315.852-.442 1.707-.306 2.063.091.24.007.15-.3-.319Zm13.101.195c.074-.36-.019-1.02-.238-1.687-.473-1.443-2.055-4.128-3.508-5.953l-.457-.575.494-.454c.646-.593 1.095-.948 1.58-1.25.381-.237.927-.448 1.161-.448.145 0 .654.528 1.065 1.104a8.4 8.4 0 0 1 1.343 3.102c.153.728.166 2.286.024 3.012a9.5 9.5 0 0 1-.6 1.893c-.179.393-.624 1.156-.82 1.404-.1.128-.1.127-.043-.148ZM7.335 1.952c-.67-.34-1.704-.705-2.276-.803a4 4 0 0 0-.759-.043c-.471.024-.45 0 .306-.358A7.8 7.8 0 0 1 6.47.128c.8-.169 2.306-.17 3.094-.005.85.18 1.853.552 2.418.9l.168.103-.385-.02c-.766-.038-1.88.27-3.078.853-.361.176-.676.316-.699.312a12 12 0 0 1-.654-.319Z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="rgb(5, 228, 31)" class="bi bi-p-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.5 4.5v7h1.5V9h1.5a2.25 2.25 0 0 0 0-4.5zm1.5 1.5h1.25a.75.75 0 0 1 0 1.5H8z"/>
                 </svg>
-                <span class="ms-2 fs-4 fw-bold">Sistema Aula</span>
+                <span class="ms-2 fs-4 fw-bold">Estacionaqui</span>
             </a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#itens">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
@@ -37,38 +37,39 @@
             <div class="collapse navbar-collapse" id="itens">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-2">
-                        <a href="{{ route('aluno.index') }}" class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
-                                <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
-                                <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                        <a href="{{ route('ticket.index') }}" class="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
+                                <path d="M4 4a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a1 1 0 0 0 1 1h1v4h-1a1 1 0 0 0-1 1v1a.5.5 0 0 1-.5.5h-7A.5.5 0 0 1 4 12v-1a1 1 0 0 0-1-1H2V6h1a1 1 0 0 0 1-1z"/>
                             </svg>
-                            <span class="ps-1 text-white">Alunos</span>
+                            <span class="ps-1 text-white">Tickets</span>
                         </a>
                     </li>
                     <li class="nav-item me-2">
-                        <a href="{{ route('curso.index') }}" class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-easel2-fill" viewBox="0 0 16 16">
-                                <path d="M8.447.276a.5.5 0 0 0-.894 0L7.19 1H2.5A1.5 1.5 0 0 0 1 2.5V10h14V2.5A1.5 1.5 0 0 0 13.5 1H8.809z"/>
-                                <path fill-rule="evenodd" d="M.5 11a.5.5 0 0 0 0 1h2.86l-.845 3.379a.5.5 0 0 0 .97.242L3.89 14h8.22l.405 1.621a.5.5 0 0 0 .97-.242L12.64 12h2.86a.5.5 0 0 0 0-1zm3.64 2 .25-1h7.22l.25 1z"/>
+                        <a href="{{ route('cliente.index') }}" class="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                <path d="M14 14s-1-4-6-4-6 4-6 4 1 1 6 1 6-1 6-1"/>
                             </svg>
-                            <span class="ps-1 text-white">Cursos</span>
+                            <span class="ps-1 text-white">Clientes</span>
                         </a>
                     </li>
                     <li class="nav-item me-2">
-                        <a href="{{ route('disciplina.index') }}" class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-stickies-fill" viewBox="0 0 16 16">
-                                <path d="M0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5A1.5 1.5 0 0 0 0 1.5"/>
-                                <path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177z"/>
+                        <a href="{{ route('carro.index') }}" class="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-car-front" viewBox="0 0 16 16">
+                                <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                <path d="M14 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                <path d="M6 1a2 2 0 0 0-1.846 1.23L2.76 5.576A2 2 0 0 0 1 7.5V12a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-.5h8V12a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7.5a2 2 0 0 0-1.76-1.924l-1.394-3.346A2 2 0 0 0 10 1zM4.5 2h7a1 1 0 0 1 .923.615L13.5 5H2.5l1.077-2.385A1 1 0 0 1 4.5 2"/>
                             </svg>
-                            <span class="ps-1 text-white">Disciplinas</span>
+                            <span class="ps-1 text-white">Carros</span>
                         </a>
                     </li>
                     <li class="nav-item me-2">
-                        <a href="{{ route('matricula.index') }}" class="nav-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-ui-checks" viewBox="0 0 16 16">
-                                <path d="M7 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zM2 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm0 8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zm.854-3.646a.5.5 0 0 1-.708 0l-1-1a.5.5 0 1 1 .708-.708l.646.647 1.646-1.647a.5.5 0 1 1 .708.708zm0 8a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.646.647 1.646-1.647a.5.5 0 0 1 .708.708zM7 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                        <a href="{{ route('carro.index') }}" class="nav-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#FFF" class="bi bi-p-square" viewBox="0 0 16 16">
+                                <path d="M8.27 5.36H6.77v2.28h1.5c.87 0 1.33-.42 1.33-1.14s-.46-1.14-1.33-1.14"/>
+                                <path d="M14 14V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M6.77 9H5.5V4h2.77c1.63 0 2.56.93 2.56 2.5S9.9 9 8.27 9z"/>
                             </svg>
-                            <span class="ps-1 text-white">Matrículas</span>
+                            <span class="ps-1 text-white">Vagas</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown pe-3">

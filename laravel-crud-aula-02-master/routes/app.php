@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\DisciplinaController;
@@ -13,12 +12,12 @@ use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
-| Páginas públicas
+| Home
 |--------------------------------------------------------------------------
 */
 
 Route::get('/', function () {
-    return view('home'); // pode trocar por welcome se quiser
+    return view('home');
 })->name('home');
 
 /*
@@ -26,39 +25,13 @@ Route::get('/', function () {
 | Breeze Auth Routes
 |--------------------------------------------------------------------------
 */
-
 require __DIR__.'/auth.php';
 
 /*
 |--------------------------------------------------------------------------
-| Dashboard (Breeze)
+| Protected Routes (somente logado)
 |--------------------------------------------------------------------------
 */
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-/*
-|--------------------------------------------------------------------------
-| Perfil (Breeze)
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware('auth')->group(function () {
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| Sistema (SEU PROJETO - protegido)
-|--------------------------------------------------------------------------
-*/
-
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('/curso', CursoController::class);
@@ -72,5 +45,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::put('/ticket/{id}/saida', [TicketController::class, 'darSaida'])
         ->name('ticket.saida');
-
 });
