@@ -47,6 +47,10 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        
+        PermissionController::loadPermissions($user->role_id);
+
+        dd(session('user_permissions'));
 
         return redirect(route('dashboard', absolute: false));
     }

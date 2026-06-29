@@ -8,6 +8,7 @@ use App\Services\TicketService;
 use App\Services\VagaService;
 use App\Services\CarroService;
 use App\Models\Ticket;
+use Illuminate\Support\Facades\Gate;
 
 class TicketController extends Controller
 {
@@ -18,6 +19,7 @@ class TicketController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Ticket::class);
         $data = $this->ticketService->all([], [],'id' );
         return view('ticket.index', compact(['data']));
     }
