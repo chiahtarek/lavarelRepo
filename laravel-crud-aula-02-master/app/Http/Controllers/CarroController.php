@@ -53,16 +53,32 @@ class CarroController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $carro = $this->carroService->find($id); 
+        $clientes =$this->clienteService->all();
+        Gate::authorize('update',$carro);
+
+
+        if(isset($carro)) {
+            return view('carro.edit', compact('carro', 'clientes'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CarroRequest $request, string $id)
     {
-        //
+        $carro = $this->carroService->find($id);
+        Gate::authorize('update', $carro);
+
+        if(isset($carro)) {
+            $this->carroService->update($request->validated(), $id);
+            return redirect()->route('carro.index');
+        }
+
+        return "<h1>Carro não encontrado!</h1>";
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -72,3 +88,4 @@ class CarroController extends Controller
         //
     }
 }
+

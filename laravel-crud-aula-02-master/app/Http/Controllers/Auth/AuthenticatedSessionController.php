@@ -8,10 +8,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\Http\Controllers\PermissionController;
+use App\Services\PermissionService;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    public function __construct(private PermissionService $permissionService) {}
+
     /**
      * Display the login view.
      */
@@ -29,7 +32,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        PermissionController::loadPermissions(auth()->user()->role_id);
+        $this->permissionService->loadPermissions(auth()->user()->role_id);
 
         return redirect()->intended(route('dashboard', absolute: false));
     }

@@ -2,41 +2,39 @@
 
 namespace App\Policies;
 
+use App\Models\Ticket;
 use App\Models\User;
-use App\Http\Controllers\PermissionController;
+use App\Services\PermissionService;
 
-class TicketPolicy
-{
-    /**
-     * Create a new policy instance.
-     */
+class TicketPolicy {
+
+    public function __construct(protected PermissionService $service) {}
+
     public function viewAny(User $user): bool {
-        return PermissionController::isAuthorized('ticket.index');
+        return $this->service->isAuthorized('carro.index');
     }
 
     public function view(User $user, Ticket $ticket): bool {
-        return PermissionController::isAuthorized('ticket.show');
+        return $this->service->isAuthorized('ticket.show');
     }
 
     public function create(User $user): bool {
-         return PermissionController::isAuthorized('ticket.create');
+        return $this->service->isAuthorized('ticket.create');
     }
 
-    public function update(User $user, Curso $ticket): bool {
-        return PermissionController::isAuthorized('ticket.edit');
-
+    public function update(User $user, Ticket $ticket): bool {
+        return $this->service->isAuthorized('ticket.edit');
     }
 
-    public function delete(User $user, Curso $ticket): bool {
-        return PermissionController::isAuthorized('ticket.delete');
-
-    }
-    public function restore(User $user, Curso $ticket): bool {
-        return PermissionController::isAuthorized('ticket.delete');
+    public function delete(User $user, Ticket $ticket): bool {
+        return $this->service->isAuthorized('ticket.delete');
     }
 
-    public function forceDelete(User $user, Curso $ticket): bool
-    {
-        return PermissionController::isAuthorized('ticket.delete');
+    public function restore(User $user, Ticket $ticket): bool {
+        return $this->service->isAuthorized('ticket.delete');
+    }
+
+    public function forceDelete(User $user, Ticket $ticket): bool {
+        return $this->service->isAuthorized('carro.delete');
     }
 }

@@ -21,7 +21,7 @@ class TicketService extends BaseService {
         $saida = now();
 
         $horas = max(1, $entrada->diffInHours($saida));
-        $valor = $horas * 10;
+        $valor = round($horas * 10, 2);
 
         return $this->repository->finalizar($id, [
             'data_saida' => $saida,

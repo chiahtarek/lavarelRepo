@@ -50,8 +50,6 @@ class RegisteredUserController extends Controller
         
         PermissionController::loadPermissions($user->role_id);
 
-        dd(session('user_permissions'));
-
         return redirect(route('dashboard', absolute: false));
     }
 }
