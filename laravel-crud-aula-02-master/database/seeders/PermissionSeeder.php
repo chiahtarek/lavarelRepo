@@ -37,9 +37,11 @@ class PermissionSeeder extends Seeder
             ["role_id" => 1, "resource_id" => 4],
             ["role_id" => 1, "resource_id" => 5],
             ["role_id" => 1, "resource_id" => 7],
+            ["role_id" => 1, "resource_id" => 10],
             ["role_id" => 1, "resource_id" => 11],
             ["role_id" => 1, "resource_id" => 12],
             ["role_id" => 1, "resource_id" => 13],
+            ["role_id" => 1, "resource_id" => 14],
         ];
         DB::table('permissions')->insert($data);
     }

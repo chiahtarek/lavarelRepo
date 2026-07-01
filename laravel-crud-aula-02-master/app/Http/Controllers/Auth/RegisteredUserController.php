@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\PermissionService; 
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,6 +16,8 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+
+    public function __construct(private PermissionService $permissionService) {}
     /**
      * Display the registration view.
      */
@@ -48,7 +51,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
         
-        PermissionController::loadPermissions($user->role_id);
+        $this->permissionService->loadPermissions($user->role_id);
 
         return redirect(route('dashboard', absolute: false));
     }

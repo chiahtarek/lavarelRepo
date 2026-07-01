@@ -29,6 +29,7 @@ class TicketController extends Controller
      */
     public function create()
     {
+        Gate::authorize('create', Ticket::class);
         $vagas = $this->vagaService->all([], [],'descricao' );
         $carros = $this->carroService->all([], [],'placa'); 
         return view('ticket.create', compact('vagas', 'carros'));
@@ -76,6 +77,12 @@ class TicketController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $ticket = $this->ticketService->find($id); 
+
+        Gate::authorize('delete', $ticket);
+
+        $this->ticketService->remove($id); 
+        return redirect()->route('ticket.index'); 
+      
     }
 }

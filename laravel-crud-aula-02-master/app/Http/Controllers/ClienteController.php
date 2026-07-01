@@ -17,6 +17,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Cliente::class);
         $data = $this->service->all([], [],'nome' );
         return view('cliente.index', compact(['data']));
     }
@@ -26,7 +27,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-         return view('cliente.create');
+        Gate::authorize('create', Cliente::class);
+        return view('cliente.create');
     }
 
     /**
@@ -51,15 +53,19 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cliente = $this->service->find($id); 
+        Gate::authorize('update', $cliente);
+        return view('cliente.edit', compact('cliente')) ;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ClienteRequest $request, string $id)
     {
-        //
+
+        $this->service->update($request->validated(), $id);
+        return redirect()->route('cliente.index'); 
     }
 
     /**

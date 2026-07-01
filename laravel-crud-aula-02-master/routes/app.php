@@ -34,10 +34,6 @@ require __DIR__.'/auth.php';
 */
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('/curso', CursoController::class);
-    Route::resource('/disciplina', DisciplinaController::class);
-    Route::resource('/aluno', AlunoController::class);
-    Route::resource('/matricula', MatriculaController::class);
 
     Route::resource('/cliente', ClienteController::class);
     Route::resource('/carro', CarroController::class);
